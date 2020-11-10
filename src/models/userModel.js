@@ -18,8 +18,6 @@ const UserSchema = new Schema({
   username: {
     type: String,
     required: true,
-    index: true,
-    unique: true
   },
   password: {
     type: String,
@@ -61,6 +59,13 @@ const UserSchema = new Schema({
 
 UserSchema.index({
   email: 1
+}, {
+  unique: true,
+  background: true,
+})
+
+UserSchema.index({
+  username: 1
 }, {
   unique: true,
   background: true,
