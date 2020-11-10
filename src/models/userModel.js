@@ -62,6 +62,7 @@ const UserSchema = new Schema({
 UserSchema.index({
   email: 1
 }, {
+  unique: true,
   background: true,
 })
 
