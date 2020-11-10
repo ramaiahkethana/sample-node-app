@@ -1,9 +1,6 @@
 import UserDataServiceProvider from '../services/database/userDataServiceProvider'
 import config from './../config/app'
 import jwt from 'jsonwebtoken'
-import utils from '../helpers/utils'
-import userDataServiceProvider from '../services/database/userDataServiceProvider'
-import md5 from 'md5'
 
 async function signIn (req, res, next) {
   try {
