@@ -58,7 +58,7 @@ async function signIn (req, res, next) {
       user_details: req.user,
       access_token: token,
       refresh_token: refreshToken,
-      message: 'User login success',
+      message: 'User logged in successfully',
     }
 
     return res.status(201).json(respData)
