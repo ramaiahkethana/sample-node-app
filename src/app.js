@@ -31,11 +31,6 @@ app.use('/' + config.app.api_version, routes)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  return res.status(404).json({
-    success: false,
-    message: 'Page not Not Found',
-    error_code: 'NOT_FOUND'
-  })
   next(createError(404))
 })
 

@@ -18,7 +18,7 @@ async function signIn (req, res, next) {
     }
 
     req.user = user
-    
+
     // Is account verified
     if (!req.user.email_verified) {
       const respData = {
