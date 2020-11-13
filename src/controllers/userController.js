@@ -89,7 +89,26 @@ async function signUp (req, res, next) {
   }
 }
 
+async function userProfile (req, res, next) {
+  try {
+    const user = JSON.parse(JSON.stringify(req.user))
+
+    if (user.password) {
+      delete user.password
+    }
+
+    return res.json({
+      success: true,
+      message: 'User profile fetched successfully',
+      details: user,
+    })
+  } catch (err) {
+    return next(err)
+  }
+}
+
 export {
   signIn,
   signUp,
+  userProfile
 }
