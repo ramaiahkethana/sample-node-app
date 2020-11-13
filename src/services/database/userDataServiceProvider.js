@@ -15,6 +15,12 @@ class UserDataServiceProvider {
     if (userDetails) { match = await bcrypt.compare(password, userDetails.password) }
     return match ? userDetails : null
   }
+
+  getUserByUsername (username, projection = {}) {
+    return UserModel
+      .findOne({ username: username })
+      .select(projection)
+  }
 }
 
 export default new UserDataServiceProvider()
