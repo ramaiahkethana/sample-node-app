@@ -3,6 +3,7 @@ import authMiddleware from './../middlewares/authMiddleware'
 import {
   signIn,
   signUp,
+  userProfile,
 } from './../controllers/userController'
 
 import schemaValidator from './../middlewares/validations/schemaValidator'
@@ -24,6 +25,14 @@ router.post('/sign-up',
     validateRequest
   ],
   signUp,
+)
+
+router.get('/profile',
+  [
+    authMiddleware.checkAuthHeader,
+    authMiddleware.validateAccessToken,
+  ],
+  userProfile,
 )
 
 export default router
